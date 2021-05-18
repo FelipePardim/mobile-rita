@@ -75,10 +75,10 @@ export function UserLogin() {
             navigation.navigate("Confirmation", {
               title: "Prontinho",
               subtitle:
-                "Agora vamos começar a cuidar das suas plantinhas com muito cuidado.",
+                "Agora vamos começar a cuidar dos seus medicamentos.",
               buttonTitle: "Começar",
               icon: "smile",
-              nextScreen: "PlantSelect",
+              nextScreen: "MedicineSelect",
             });
           });
 

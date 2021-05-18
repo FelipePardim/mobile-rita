@@ -25,7 +25,7 @@ interface EnvironmentProps {
     title: string;
 }
 
-export function PlantSelect() {
+export function MedicineSelect() {
     const navigation = useNavigation();
     const [environments, setEnvironments] = useState<EnvironmentProps[]>([]);
     const [plants, setPlants] = useState<PlantProps[]>([]);
@@ -84,8 +84,8 @@ export function PlantSelect() {
         fetchPlants();
     }
 
-    function handlePlantSelect(plant: PlantProps) {
-        navigation.navigate("PlantSave", { plant });
+    function handleMedicineSelect(plant: PlantProps) {
+        navigation.navigate("MedicineSave", { plant });
     }
 
     useEffect(() => {
@@ -159,7 +159,7 @@ export function PlantSelect() {
                     renderItem={({ item }) => (
                         <PlantCardPrimary
                             data={item}
-                            onPress={() => handlePlantSelect(item)}
+                            onPress={() => handleMedicineSelect(item)}
                         />
                     )}
                 />

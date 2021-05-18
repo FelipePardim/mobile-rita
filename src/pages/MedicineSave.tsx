@@ -77,7 +77,7 @@ export function MedicineSave() {
       // const data = await loadPlants();
       // console.log(data);
 
-      navigation.navigate("MyPlants");
+      navigation.navigate("MyMedicines");
     } catch {
       Alert.alert("Não foi possível salvar. 😥");
     }
