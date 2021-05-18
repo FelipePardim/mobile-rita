@@ -1,73 +1,131 @@
 <h1 align="center">
-    <img alt="PlantManager" title="PlantManager" src=".github/logo.svg" />
+    Projeto Mobile de Oficina de Integração 2 e Programação de Dispositivos Móveis.
 </h1>
 
-<p align="center">
-  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-começando">Começando</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-license">Licença</a>
-</p>
+## Repositório do projeto de Oficina de Integração 2 e Programação de Dispositivos Móveis.
 
 <p align="center">
-  <img  src="https://img.shields.io/static/v1?label=license&message=MIT&color=FFFFFF&labelColor=32B768" alt="License">
-  
-  <img src="https://img.shields.io/github/forks/Daniel-Vinicius/PlantManager?label=forks&message=MIT&color=FFFFFF&labelColor=32B768" alt="Forks">
-
-  <img src="https://img.shields.io/github/stars/Daniel-Vinicius/PlantManager?label=stars&message=MIT&color=FFFFFF&labelColor=32B768" alt="Stars">
-</p>
-
-<br>
-
-<p align="center">
-  <img alt="Moveit" src=".github/plantmanager-preview.png">
+	<img src="https://img.shields.io/github/stars/FelipePardim/mobile-rita" />
+    <img src="https://img.shields.io/github/forks/FelipePardim/mobile-rita" />
+    <img src="https://img.shields.io/github/issues/FelipePardim/mobile-rita" />
+    <img src="https://img.shields.io/github/license/FelipePardim/mobile-rita" />
+    <br>
+    <img src="https://img.shields.io/badge/Node.JS-grey?logo=node.js" />
+    <img src="https://img.shields.io/badge/TypeScript-007ACC?logo=TypeScript" />
+    <img src="https://img.shields.io/badge/PostgreSQL-003B57?logo=postgresql" />
+    <img src="https://img.shields.io/badge/React-blue?logo=react" />
+    <img src="https://img.shields.io/badge/Firebase-grey?logo=firebase" />
 </p>
 
 ---
+ 
+## Indíce
+- [Indíce](#Indíce).
+- [Sobre](#Sobre).
+- [Requisitos](#Requisitos).
+- [Instalação](#Instalação).
+- [Como usar](#como-usar).
+    - [Iniciando o servidor backend](#iniciando-backend).
+    - [Iniciando o front-end](#iniciando-web).
+    - [Iniciando o app ](#iniciando-mobile).
+- [Tecnologias utilizadas](#tecnologias).
+- [Licença](#licenca).
+- [Autores](#autores).
 
-## 🧪 Tecnologias
+---
 
-Este projeto foi desenvolvido utilizando as seguintes tecnologias:
+## Sobre:
+### Rita: Uma aplicação que busca facilitar gerenciamento dos horários de ingestão de  medicações.
+### Projeto desenvolvido durante a matéria de Oficina de Integração 2 e subsequentemente Programação de Dispositivos Móveis, curso Bach. Engenharia de Software.
 
-- [React Native](https://reactnative.dev/)
-- [Expo](https://expo.io/)
-- [TypeScript](https://www.typescriptlang.org/)
+---
 
-## 🚀 Começando
+## Requisitos
 
-Clone o projeto e acesse a pasta
+Para testar ou utilizar esse projeto, por favor instale esses itens:
 
-```bash
-$ git clone https://github.com/Daniel-Vinicius/PlantManager.git && cd PlantManager
-```
+- [Git](https://git-scm.com).
+- [yarn](https://yarnpkg.com/) or [npm](https://www.npmjs.com/).
+- [Expo](https://expo.io/).
 
-Siga os passos abaixo
+Use seu editor de texto preferido ou IDE para estudar, ler ou modificar o projeto
+Esses foram os editores utilizados.
+- [VSCode](https://code.visualstudio.com/).
+- [Nano](https://www.nano-editor.org/).
 
-```bash
-# Instale as dependências
-$ yarn install
+---
 
-# Inicie o projeto
-$ expo start
-```
+## Instalação
+> ### Clone o repositório.
+>>   ```bash
+>>  # Clone o repositório
+>>  $ git clone https://github.com/FelipePardim/mobile-rita
+>>   ```
+> ### Siga passos abaixo para utilizar o projeto da maneira a qual quiser.
 
-## 💻 Projeto
+---
 
-App para lembrar sempre de regar suas plantas 🌱
+## Como usar
+><h3 id="iniciando-mobile">
+>    📱 Iniciando o app ( Android & IOS ).
+></h3>
+>
+>>```bash
+>># Acesse a pasta mobile
+>>$ cd mobile
+>>
+>># Instale as dependências.
+>>$ yarn install
+>>#ou
+>>$ npm install 
+>>
+>># Inicie o servidor do Expo.
+>>$ expo start
+>>
+>> # Conecte seu smartphone Android ou iPhone no servidor do Expo, ou use seu emulador preferido.
+>>```
+>
+---
 
-Este é um projeto desenvolvido durante a **[Next Level Week](https://nextlevelweek.com/)**, apresentado por **[@Rocketseat](https://github.com/Rocketseat)** durante abril 19-25, 2021.
+<h2 id="tecnologias">
+    🛠 Tecnologias
+</h2>
 
-## 🔖 Layout
+Essas foram as tecnologias e ferramentas utilizadas no desenvolvimento do projeto:
 
-Você pode visualizar o layout do projeto através do link abaixo:
+- [TypeScript](https://www.typescriptlang.org/).
+- [Figma](https://www.figma.com/).
+<!-- - [JWT](https://jwt.io/). -->
+- [React Native](https://reactnative.dev/).
+- [Expo](https://expo.io/).
 
-- [Layout](https://www.figma.com/file/IhQRtrOZdu3TrvkPYREzOy/PlantManager)
 
-Lembrando que você precisa ter uma conta no [Figma](http://figma.com/) para acessá-lo.
+---
 
-## 📝 License
+<h2 id="licenca">
+    📝 Licença 
+</h2>
 
-Este projeto está licenciado sob a Licença MIT. Veja o [LICENSE](LICENSE) para detalhes.
+Esse projeto está sobre a licença [MIT](https://github.com/FelipePardim/mobile-rita/LICENSE.md).
 
-Feito com 💜 por [Daniel Vinícius](https://github.com/Daniel-Vinicius) 👋
+---
+
+<h2 id="autores">
+    👨‍💻 Autores:
+    <div>
+        <a href="https://github.com/FelipePardim" margin="10px">
+            <img src="https://img.shields.io/badge/GitHub-FelipePardim-6f42c1?logo=github"/>
+        </a>
+        <a alt="Felipe Pardim" href="https://www.linkedin.com/in/felipe-pardim">
+            <img src="https://img.shields.io/badge/LinkedIn-Felipe%20Pardim-blue?logo=linkedin"/>
+        </a>
+    </div>
+    <div>
+        <a href="https://github.com/leonardothomaz" margin="10px">
+            <img src="https://img.shields.io/badge/GitHub-leonardothomaz-6f42c1?logo=github"/>
+        </a>
+        <a alt="LEO" href="https://www.linkedin.com/in/leonardo-thomaz-rocha/">
+            <img src="https://img.shields.io/badge/LinkedIn-Leonardo%20Thomaz-blue?logo=linkedin"/>
+        </a>
+    </div>
+</h2>
