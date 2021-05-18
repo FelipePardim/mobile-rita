@@ -72,6 +72,10 @@ export function UserPassword() {
           return Alert.alert("As senhas não são iguais 😥");
         }
 
+        if (password.length < 6) {
+            return Alert.alert("A senha deve possuir ao menos 6 caracteres 😥");
+        }
+
         try {
             await AsyncStorage.setItem("@plantmanager:user", password);
             changePassword(password);
