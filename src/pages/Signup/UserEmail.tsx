@@ -47,7 +47,7 @@ export function UserEmail() {
 
   async function handleSubmit() {
     if (!email) {
-      return Alert.alert("Me diz como chamar você 😥");
+      return Alert.alert("Por favor informe o seu e-mail 😥");
     }
 
     try {

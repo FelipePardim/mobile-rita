@@ -40,8 +40,6 @@ export function UserPassword() {
     const [password, setPassword] = useState<string>();
     const [passwordConfirmation, setPasswordConfirmation] = useState<string>();
 
-    console.log(email);
-
     function handleInputBlur() {
         setIsFocused(false);
         setIsFilled(!!password);
@@ -79,13 +77,9 @@ export function UserPassword() {
             changePassword(password);
             await AsyncStorage.setItem("@plantmanager:help", "true");
 
-            navigation.navigate("Confirmation", {
-                title: "Prontinho",
-                subtitle:
-                    "Agora vamos começar a cuidar das suas plantinhas com muito cuidado.",
-                buttonTitle: "Começar",
-                icon: "smile",
-                nextScreen: "PlantSelect",
+            navigation.navigate("UserIdentification", {
+                email: email,
+                password: password
             });
         } catch (error) {
             return Alert.alert("Não foi possível salvar o sua senha. 😥");
@@ -106,7 +100,7 @@ export function UserPassword() {
                                     {isFilled ? "😆" : "😀"}
                                 </Text>
                                 <Text style={styles.title}>
-                                    Escolha uma senha
+                                    Crie uma senha
                                 </Text>
                             </View>
 

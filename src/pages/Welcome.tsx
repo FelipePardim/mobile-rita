@@ -23,7 +23,7 @@ export function Welcome() {
   const navigation = useNavigation();
 
   function handleStart() {
-    navigation.navigate("UserIdentification");
+    navigation.navigate("UserEmail");
   }
 
   return (
@@ -40,7 +40,7 @@ export function Welcome() {
 
         <Text style={styles.subtitle}>
           Não esqueça mais de regar suas plantas. Nós cuidamos de lembrar você
-          sempre que precisar.
+          sempre que precisar  RITARITA.
         </Text>
 
         <TouchableOpacity
