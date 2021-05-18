@@ -37,7 +37,7 @@ export function Welcome() {
                     resizeMode="contain"
                 />
                 <Text style={styles.title}>
-                    Conheça a Rita, sua assistente para tomar remédios
+                    Conheça a Rita, sua assistente para consumo de medicamentos
                 </Text>
 
                 <Text style={styles.subtitle}>
