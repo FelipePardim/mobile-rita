@@ -9,9 +9,7 @@
     "description": "🌱 App para lembrar sempre de regar suas plantas 🌱",
     "githubUrl": "https://github.com/Daniel-Vinicius/PlantManager",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#DAF2E4"
+      "image": "./assets/splashRita.png"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
