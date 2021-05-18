@@ -6,8 +6,8 @@ import colors from "../styles/colors";
 
 import { MaterialIcons } from "@expo/vector-icons";
 
-import { PlantSelect } from "../pages/PlantSelect";
-import { MyPlants } from "../pages/MyPlants";
+import { PlantSelect } from "../pages/MedicineSelect";
+import { MyMedicines } from "../pages/MyMedicines";
 
 const AppTab = createBottomTabNavigator();
 
@@ -38,7 +38,7 @@ const AuthRoutes: React.FC = () => (
 
     <AppTab.Screen
       name="Minhas Medicações"
-      component={MyPlants}
+      component={MyMedicines}
       options={{
         tabBarIcon: ({ size, color }) => (
           <MaterialIcons

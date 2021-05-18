@@ -31,7 +31,7 @@ interface ParamsPagePlantSave {
   plant: PlantProps;
 }
 
-export function PlantSave() {
+export function MedicineSave() {
   const route = useRoute();
   const navigation = useNavigation();
   const { plant } = route.params as ParamsPagePlantSave;

@@ -15,7 +15,7 @@ import { Header } from "../components/Header";
 import { PlantCardSecundary } from "../components/PlantCardSecundary";
 import { Load } from "../components/Load";
 
-export function MyPlants() {
+export function MyMedicines() {
   const [myPlants, setMyPlants] = useState<PlantProps[]>([]);
   const [loading, setLoading] = useState(true);
   const [nextWaterd, setNextWaterd] = useState<string>();

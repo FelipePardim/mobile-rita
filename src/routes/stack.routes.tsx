@@ -7,7 +7,7 @@ import colors from "../styles/colors";
 import { Welcome } from "../pages/Welcome";
 import { UserIdentification } from "../pages/UserIdentification";
 import { Confirmation } from "../pages/Confirmation";
-import { PlantSave } from "../pages/PlantSave";
+import { MedicineSave } from "../pages/MedicineSave";
 import { UserEmail } from "../pages/Signup/UserEmail";
 import { UserPassword } from "../pages/Signup/UserPassword";
 import { UserLogin } from "../pages/UserLogin";
@@ -67,7 +67,7 @@ const AppRoutes: React.FC = () => {
             <stackRoutes.Screen name="UserLogin" component={UserLogin} />
             
             <stackRoutes.Screen name="PlantSelect" component={AuthRoutes} />
-            <stackRoutes.Screen name="PlantSave" component={PlantSave} />
+            <stackRoutes.Screen name="PlantSave" component={MedicineSave} />
             <stackRoutes.Screen name="MyPlants" component={AuthRoutes} />
         </stackRoutes.Navigator>
     );
