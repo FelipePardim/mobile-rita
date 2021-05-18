@@ -55,8 +55,6 @@ export function UserIdentification() {
     setName(value);
   }
 
-
-
   async function handleFirebaseRegister() {
     await firebase
       .auth()
