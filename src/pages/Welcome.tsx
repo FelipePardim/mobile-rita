@@ -3,97 +3,128 @@ import React from "react";
 import { useNavigation } from "@react-navigation/core";
 
 import {
-  Text,
-  SafeAreaView,
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-  Dimensions,
-  View,
+    Text,
+    SafeAreaView,
+    Image,
+    StyleSheet,
+    TouchableOpacity,
+    Dimensions,
+    View,
 } from "react-native";
 
-import { Feather } from "@expo/vector-icons";
-
-import wateringImg from "../assets/watering.png";
+import hospitalTeam from "../assets/medicine.png";
 
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 
 export function Welcome() {
-  const navigation = useNavigation();
+    const navigation = useNavigation();
 
-  function handleStart() {
-    navigation.navigate("UserEmail");
-  }
+    function handleCreateAccount() {
+        navigation.navigate("UserEmail");
+    }
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.wrapper}>
-        <Text style={styles.title}>
-          Gerencie {"\n"}
-          suas plantas de
-          {"\n"}
-          forma fácil
-        </Text>
+    function handleLogin() {
+        navigation.navigate("UserLogin");
+    }
 
-        <Image source={wateringImg} style={styles.image} resizeMode="contain" />
+    return (
+        <SafeAreaView style={styles.container}>
+            <View style={styles.wrapper}>
+                <Image
+                    source={hospitalTeam}
+                    style={styles.image}
+                    resizeMode="contain"
+                />
+                <Text style={styles.title}>
+                    Conheça a Rita, sua assistente para tomar remédios
+                </Text>
 
-        <Text style={styles.subtitle}>
-          Não esqueça mais de regar suas plantas. Nós cuidamos de lembrar você
-          sempre que precisar  RITARITA.
-        </Text>
+                <Text style={styles.subtitle}>
+                    Rita foi criada para que você nunca mais se esqueça de seus
+                    medicamentos
+                </Text>
 
-        <TouchableOpacity
-          style={styles.button}
-          activeOpacity={0.7}
-          onPress={handleStart}
-        >
-          <Feather name="chevron-right" style={styles.buttonIcon} />
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
-  );
+                <TouchableOpacity
+                    style={styles.createButton}
+                    activeOpacity={0.7}
+                    onPress={handleCreateAccount}
+                >
+                    <Text style={styles.createButtonText}>Criar uma conta</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.loginButton}
+                    activeOpacity={0.7}
+                    onPress={handleLogin}
+                >
+                    <Text style={styles.loginButtonText}>Entrar</Text>
+                </TouchableOpacity>
+            </View>
+        </SafeAreaView>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  wrapper: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "space-around",
-    paddingHorizontal: 20,
-  },
-  title: {
-    fontSize: 28,
-    textAlign: "center",
-    color: colors.heading,
-    marginTop: 38,
-    fontFamily: fonts.heading,
-    lineHeight: 34,
-  },
-  subtitle: {
-    textAlign: "center",
-    fontSize: 18,
-    paddingHorizontal: 20,
-    color: colors.heading,
-    fontFamily: fonts.text,
-  },
-  image: {
-    height: Dimensions.get("window").width * 0.7,
-  },
-  button: {
-    backgroundColor: colors.green,
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 16,
-    marginBottom: 10,
-    height: 56,
-    width: 56,
-  },
-  buttonIcon: {
-    color: colors.white,
-    fontSize: 32,
-  },
+    container: {
+        flex: 1,
+    },
+    wrapper: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "space-around",
+        paddingHorizontal: 20,
+    },
+    title: {
+        fontSize: 22,
+        textAlign: "center",
+        color: "black",
+        fontFamily: fonts.heading,
+        lineHeight: 24,
+    },
+    subtitle: {
+        textAlign: "center",
+        fontSize: 18,
+        paddingHorizontal: 15,
+        color: "black",
+        fontFamily: fonts.text,
+    },
+    image: {
+        height: Dimensions.get("window").width * 0.7,
+    },
+    createButton: {
+        backgroundColor: colors.green,
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 16,
+        marginBottom: 10,
+        height: 56,
+        width: 220,
+    },
+    loginButton: {
+        backgroundColor: colors.white,
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 16,
+        borderWidth: 1,
+        borderColor: colors.green,
+        marginBottom: 10,
+        height: 56,
+        width: 220,
+    },
+    createButtonText: {
+        textAlign: "center",
+        fontSize: 18,
+        fontWeight: "bold",
+        paddingHorizontal: 15,
+        color: "white",
+        fontFamily: fonts.text,
+    },
+    loginButtonText: {
+        textAlign: "center",
+        fontSize: 18,
+        fontWeight: "bold",
+        paddingHorizontal: 15,
+        color: colors.green,
+        fontFamily: fonts.text,
+    },
 });

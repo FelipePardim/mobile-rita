@@ -10,6 +10,7 @@ import { Confirmation } from "../pages/Confirmation";
 import { PlantSave } from "../pages/PlantSave";
 import { UserEmail } from "../pages/Signup/UserEmail";
 import { UserPassword } from "../pages/Signup/UserPassword";
+import { UserLogin } from "../pages/UserLogin";
 
 import AuthRoutes from "./tab.routes";
 
@@ -63,6 +64,8 @@ const AppRoutes: React.FC = () => {
             <stackRoutes.Screen name="UserEmail" component={UserEmail} />
             <stackRoutes.Screen name="UserPassword" component={UserPassword} />
 
+            <stackRoutes.Screen name="UserLogin" component={UserLogin} />
+            
             <stackRoutes.Screen name="PlantSelect" component={AuthRoutes} />
             <stackRoutes.Screen name="PlantSave" component={PlantSave} />
             <stackRoutes.Screen name="MyPlants" component={AuthRoutes} />
