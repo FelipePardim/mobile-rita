@@ -66,7 +66,7 @@ const AppRoutes: React.FC = () => {
 
             <stackRoutes.Screen name="UserLogin" component={UserLogin} />
             
-            <stackRoutes.Screen name="MedicineSelecy" component={AuthRoutes} />
+            <stackRoutes.Screen name="MedicineSelect" component={AuthRoutes} />
             <stackRoutes.Screen name="MedicineSave" component={MedicineSave} />
             <stackRoutes.Screen name="MyMedicines" component={AuthRoutes} />
         </stackRoutes.Navigator>
