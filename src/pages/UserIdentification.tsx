@@ -79,9 +79,9 @@ export function UserIdentification() {
     }
 
     try {
-      await AsyncStorage.setItem("@plantmanager:user", name);
+      await AsyncStorage.setItem("@rita:user", name);
       changeName(name);
-      await AsyncStorage.setItem("@plantmanager:help", "true");
+      await AsyncStorage.setItem("@rita:help", "true");
 
       console.log(`Email: ${email}\nPassword: ${password}\nName: ${name}`);
 

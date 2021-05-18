@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "Plant Manager",
-    "slug": "Plantmanager",
+    "name": "Rita",
+    "slug": "Rita",
     "privacy": "public",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "description": "💊 App para lembrar de suas medicações",
-    "githubUrl": "https://github.com/Daniel-Vinicius/PlantManager",
+    "githubUrl": "https://github.com/FelipePardim/mobile-rita",
     "splash": {
       "image": "./assets/splashRita.png"
     },
@@ -19,11 +19,11 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.dan.plantmanager",
+      "bundleIdentifier": "com.dan.rita",
       "buildNumber": "1.0.0"
     },
     "android": {
-      "package": "com.dan.plantmanager",
+      "package": "com.dan.rita",
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",

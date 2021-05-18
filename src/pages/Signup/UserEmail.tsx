@@ -51,9 +51,9 @@ export function UserEmail() {
     }
 
     try {
-      await AsyncStorage.setItem("@plantmanager:user", email);
+      await AsyncStorage.setItem("@rita:user", email);
       changeEmail(email);
-      await AsyncStorage.setItem("@plantmanager:help", "true");
+      await AsyncStorage.setItem("@rita:help", "true");
 
       navigation.navigate("UserPassword", {
         email: email

@@ -9,7 +9,7 @@ import { Feather } from "@expo/vector-icons";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 
-interface PlantCardSecundaryProps extends RectButtonProps {
+interface MedicineCardSecundaryProps extends RectButtonProps {
   data: {
     name: string;
     hour: string;
@@ -18,11 +18,11 @@ interface PlantCardSecundaryProps extends RectButtonProps {
   handleRemove: () => void;
 }
 
-export function PlantCardSecundary({
+export function MedicineCardSecundary({
   data,
   handleRemove,
   ...rest
-}: PlantCardSecundaryProps) {
+}: MedicineCardSecundaryProps) {
   // console.log(data);
 
   return (

@@ -3,7 +3,7 @@ import AppLoading from "expo-app-loading";
 // import * as Notifications from "expo-notifications";
 
 import { clearStorage } from "./src/libs/storage";
-// import { PlantProps } from "./src/libs/storage";
+// import { MedicineProps } from "./src/libs/storage";
 
 import AppProvider from "./src/contexts";
 
@@ -25,7 +25,7 @@ export default function App() {
   // Ouvir a Notificação
   // const subscription = Notifications.addNotificationReceivedListener(
   //   async (notification) => {
-  //     const data = notification.request.content.data.plant as PlantProps;
+  //     const data = notification.request.content.data.medicine as MedicineProps;
   //     console.log(data);
   //   }
   // );

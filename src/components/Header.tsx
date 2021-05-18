@@ -48,7 +48,7 @@ export function Header({ title, subtitle }: HeaderProps) {
     }
 
     if (!result.cancelled && result.uri) {
-      await AsyncStorage.setItem("@plantmanager:image", result.uri);
+      await AsyncStorage.setItem("@rita:image", result.uri);
       changeImage(result.uri);
       return;
     }

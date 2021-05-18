@@ -62,7 +62,7 @@ const UserProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     async function loadStorageUserName() {
-      const name = await AsyncStorage.getItem("@plantmanager:user");
+      const name = await AsyncStorage.getItem("@rita:user");
 
       setUser({
         ...user,
@@ -75,7 +75,7 @@ const UserProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     async function loadStorageImage() {
-      const imageStorage = await AsyncStorage.getItem("@plantmanager:image");
+      const imageStorage = await AsyncStorage.getItem("@rita:image");
 
       // console.log(imageStorage);
       // console.log(user.image);

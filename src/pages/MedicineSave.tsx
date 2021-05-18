@@ -19,7 +19,7 @@ import { useNavigation, useRoute } from "@react-navigation/core";
 import { getBottomSpace } from "react-native-iphone-x-helper";
 import { SvgFromUri } from "react-native-svg";
 
-import { loadPlants, PlantProps, savePlant } from "../libs/storage";
+import { loadMedicines, MedicineProps, saveMedicine } from "../libs/storage";
 
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
@@ -27,14 +27,14 @@ import fonts from "../styles/fonts";
 import { Button } from "../components/Button";
 import { MaterialIcons } from "@expo/vector-icons";
 
-interface ParamsPagePlantSave {
-  plant: PlantProps;
+interface ParamsPageMedicineSave {
+  medicine: MedicineProps;
 }
 
 export function MedicineSave() {
   const route = useRoute();
   const navigation = useNavigation();
-  const { plant } = route.params as ParamsPagePlantSave;
+  const { medicine } = route.params as ParamsPageMedicineSave;
 
   const [selectedDateTime, setSelectedDateTime] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(Platform.OS === "ios");
@@ -63,18 +63,18 @@ export function MedicineSave() {
     setShowDatePicker((oldState) => !oldState);
   }
 
-  async function handleSavePlant() {
+  async function handleSaveMedicine() {
     // console.log(subHours(selectedDateTime, 3));
     if (selectedDateTime && isBefore(selectedDateTime, new Date())) {
       setSelectedDateTime(new Date());
       return Alert.alert("Escolha uma hora no futuro! ⏰");
     }
     try {
-      await savePlant({
-        ...plant,
+      await saveMedicine({
+        ...medicine,
         dateTimeNotification: selectedDateTime,
       });
-      // const data = await loadPlants();
+      // const data = await loadMedicines();
       // console.log(data);
 
       navigation.navigate("MyMedicines");
@@ -89,16 +89,16 @@ export function MedicineSave() {
       contentContainerStyle={styles.container}
     >
       <View style={styles.container}>
-        <View style={styles.plantInfo}>
-          <SvgFromUri uri={plant.photo} height={150} width={150} />
-          <Text style={styles.plantName}>{plant.name}</Text>
-          <Text style={styles.plantAbout}>{plant.about}</Text>
+        <View style={styles.medicineInfo}>
+          <SvgFromUri uri={medicine.photo} height={150} width={150} />
+          <Text style={styles.medicineName}>{medicine.name}</Text>
+          <Text style={styles.medicineAbout}>{medicine.about}</Text>
         </View>
 
         <View style={styles.controller}>
           <View style={styles.tipContainer}>
           <MaterialIcons name="medical-services" size={60} color={colors.blue} />
-            <Text style={styles.tipText}>{plant.water_tips}</Text>
+            <Text style={styles.tipText}>{medicine.water_tips}</Text>
           </View>
 
           <Text style={styles.alertLabel}>
@@ -125,7 +125,7 @@ export function MedicineSave() {
             </TouchableOpacity>
           )}
 
-          <Button title="Cadastrar planta" onPress={handleSavePlant} />
+          <Button title="Cadastrar Medicação" onPress={handleSaveMedicine} />
         </View>
       </View>
     </ScrollView>
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     backgroundColor: colors.shape,
   },
-  plantInfo: {
+  medicineInfo: {
     flex: 1,
     paddingHorizontal: 30,
     paddingVertical: 50,
@@ -146,13 +146,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: colors.shape,
   },
-  plantName: {
+  medicineName: {
     fontFamily: fonts.heading,
     fontSize: 24,
     color: colors.heading,
     marginTop: 15,
   },
-  plantAbout: {
+  medicineAbout: {
     textAlign: "center",
     fontFamily: fonts.text,
     color: colors.heading,

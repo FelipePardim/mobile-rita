@@ -2,7 +2,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Notification from "expo-notifications";
 import { format } from "date-fns";
 
-export interface PlantProps {
+export interface MedicineProps {
   id: string;
   name: string;
   about: string;
@@ -17,19 +17,19 @@ export interface PlantProps {
   dateTimeNotification: Date;
 }
 
-export interface StoragePlantProps {
+export interface StorageMedicineProps {
   [id: string]: {
-    data: PlantProps;
+    data: MedicineProps;
     notificationId: string;
   };
 }
 
-export async function savePlant(plant: PlantProps): Promise<void> {
+export async function saveMedicine(medicine: MedicineProps): Promise<void> {
   try {
-    const nextTime = new Date(plant.dateTimeNotification);
+    const nextTime = new Date(medicine.dateTimeNotification);
     const now = new Date();
 
-    const { times, repeat_every } = plant.frequency;
+    const { times, repeat_every } = medicine.frequency;
 
     if (repeat_every === "week") {
       const interval = Math.trunc(7 / times);
@@ -46,11 +46,11 @@ export async function savePlant(plant: PlantProps): Promise<void> {
     const notificationId = await Notification.scheduleNotificationAsync({
       content: {
         title: "Olá, 💊",
-        body: `Está na hora de cuidar da sua saúde. Medicação:${plant.name}`,
+        body: `Está na hora de cuidar da sua saúde. Medicação:${medicine.name}`,
         sound: true,
         priority: Notification.AndroidNotificationPriority.HIGH,
         data: {
-          plant,
+          medicine,
         },
       },
       trigger: {
@@ -59,36 +59,36 @@ export async function savePlant(plant: PlantProps): Promise<void> {
       },
     });
 
-    const data = await AsyncStorage.getItem("@plantmanager:plants");
-    const oldPlants = data ? (JSON.parse(data) as StoragePlantProps) : {};
+    const data = await AsyncStorage.getItem("@rita:medicines");
+    const oldMedicines = data ? (JSON.parse(data) as StorageMedicineProps) : {};
 
-    const newPlant = {
-      [plant.id]: {
-        data: plant,
+    const newMedicine = {
+      [medicine.id]: {
+        data: medicine,
         notificationId,
       },
     };
 
     await AsyncStorage.setItem(
-      "@plantmanager:plants",
-      JSON.stringify({ ...newPlant, ...oldPlants })
+      "@rita:medicines",
+      JSON.stringify({ ...newMedicine, ...oldMedicines })
     );
   } catch (error) {
     throw new Error(error);
   }
 }
 
-export async function loadPlants(): Promise<PlantProps[]> {
+export async function loadMedicines(): Promise<MedicineProps[]> {
   try {
-    const data = await AsyncStorage.getItem("@plantmanager:plants");
-    const plants = data ? (JSON.parse(data) as StoragePlantProps) : {};
+    const data = await AsyncStorage.getItem("@rita:medicines");
+    const medicines = data ? (JSON.parse(data) as StorageMedicineProps) : {};
 
-    const plantsSorted = Object.keys(plants)
-      .map((plant) => {
+    const medicinesSorted = Object.keys(medicines)
+      .map((medicine) => {
         return {
-          ...plants[plant].data,
+          ...medicines[medicine].data,
           hour: format(
-            new Date(plants[plant].data.dateTimeNotification),
+            new Date(medicines[medicine].data.dateTimeNotification),
             "HH:mm"
           ),
         };
@@ -100,24 +100,24 @@ export async function loadPlants(): Promise<PlantProps[]> {
         )
       );
 
-    return plantsSorted;
+    return medicinesSorted;
   } catch (error) {
     throw new Error(error);
   }
 }
 
-export async function removePlant(id: string): Promise<void> {
-  const data = await AsyncStorage.getItem("@plantmanager:plants");
+export async function removeMedicine(id: string): Promise<void> {
+  const data = await AsyncStorage.getItem("@rita:medicines");
 
-  const plants = data ? (JSON.parse(data) as StoragePlantProps) : {};
+  const medicines = data ? (JSON.parse(data) as StorageMedicineProps) : {};
 
   await Notification.cancelScheduledNotificationAsync(
-    plants[id].notificationId
+    medicines[id].notificationId
   );
 
-  delete plants[id];
+  delete medicines[id];
 
-  await AsyncStorage.setItem("@plantmanager:plants", JSON.stringify(plants));
+  await AsyncStorage.setItem("@rita:medicines", JSON.stringify(medicines));
 }
 
 export async function clearStorage(): Promise<void> {

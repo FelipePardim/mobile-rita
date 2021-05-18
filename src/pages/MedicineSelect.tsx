@@ -9,7 +9,7 @@ import {
 
 import { useNavigation } from "@react-navigation/core";
 
-import { PlantProps } from "../libs/storage";
+import { MedicineProps } from "../libs/storage";
 import api from "../services/api";
 
 import colors from "../styles/colors";
@@ -17,7 +17,7 @@ import fonts from "../styles/fonts";
 
 import { Header } from "../components/Header";
 import { EnvironmentButton } from "../components/EnvironmentButton";
-import { PlantCardPrimary } from "../components/PlantCardPrimary";
+import { MedicineCardPrimary } from "../components/MedicineCardPrimary";
 import { Load } from "../components/Load";
 
 interface EnvironmentProps {
@@ -28,8 +28,8 @@ interface EnvironmentProps {
 export function MedicineSelect() {
     const navigation = useNavigation();
     const [environments, setEnvironments] = useState<EnvironmentProps[]>([]);
-    const [plants, setPlants] = useState<PlantProps[]>([]);
-    const [filteredPlants, setFilteredPlants] = useState<PlantProps[]>([]);
+    const [medicines, setMedicines] = useState<MedicineProps[]>([]);
+    const [filteredMedicines, setFilteredMedicines] = useState<MedicineProps[]>([]);
     const [environmentSelected, setEnvironmentSelected] = useState("all");
     const [loading, setLoading] = useState(true);
 
@@ -40,20 +40,20 @@ export function MedicineSelect() {
         setEnvironmentSelected(environment);
 
         if (environment === "all") {
-            setFilteredPlants(plants);
+            setFilteredMedicines(medicines);
             return;
         }
 
-        const filtered = plants.filter((plant) =>
-            plant.environments.includes(environment)
+        const filtered = medicines.filter((medicine) =>
+        medicine.environments.includes(environment)
         );
 
-        setFilteredPlants(filtered);
+        setFilteredMedicines(filtered);
     }
 
-    async function fetchPlants() {
-        const { data } = await api.get<PlantProps[]>(
-            `plants?_sort=name&_order=asc&_page=${page}&_limit=8`
+    async function fetchMedicines() {
+        const { data } = await api.get<MedicineProps[]>(
+            `medicines?_sort=name&_order=asc&_page=${page}&_limit=8`
         );
 
         if (!data) {
@@ -65,11 +65,11 @@ export function MedicineSelect() {
         }
 
         if (page > 1) {
-            setPlants((oldValue) => [...oldValue, ...data]);
-            setFilteredPlants((oldValue) => [...oldValue, ...data]);
+            setMedicines((oldValue) => [...oldValue, ...data]);
+            setFilteredMedicines((oldValue) => [...oldValue, ...data]);
         } else {
-            setPlants(data);
-            setFilteredPlants(data);
+            setMedicines(data);
+            setFilteredMedicines(data);
         }
 
         setLoading(false);
@@ -81,17 +81,17 @@ export function MedicineSelect() {
 
         setLoadingMorePages(true);
         setPage((oldValue) => oldValue + 1);
-        fetchPlants();
+        fetchMedicines();
     }
 
-    function handleMedicineSelect(plant: PlantProps) {
-        navigation.navigate("MedicineSave", { plant });
+    function handleMedicineSelect(medicine: MedicineProps) {
+        navigation.navigate("MedicineSave", { medicine });
     }
 
     useEffect(() => {
         async function fetchEnvironment() {
             const { data } = await api.get(
-                "plants_environments?_sort=title&_order=asc"
+                "medicines_environments?_sort=title&_order=asc"
             );
             setEnvironments([
                 {
@@ -106,7 +106,7 @@ export function MedicineSelect() {
     }, []);
 
     useEffect(() => {
-        fetchPlants();
+        fetchMedicines();
     }, []);
 
     if (loading) {
@@ -139,9 +139,9 @@ export function MedicineSelect() {
                 />
             </View>
 
-            <View style={styles.plants}>
+            <View style={styles.medicines}>
                 <FlatList
-                    data={filteredPlants}
+                    data={filteredMedicines}
                     keyExtractor={(item) => String(item.id)}
                     showsVerticalScrollIndicator={false}
                     numColumns={2}
@@ -157,7 +157,7 @@ export function MedicineSelect() {
                         )
                     }
                     renderItem={({ item }) => (
-                        <PlantCardPrimary
+                        <MedicineCardPrimary
                             data={item}
                             onPress={() => handleMedicineSelect(item)}
                         />
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
         marginLeft: 32,
         paddingRight: 32 * 2,
     },
-    plants: {
+    medicines: {
         flex: 1,
         paddingHorizontal: 32,
         justifyContent: "center",

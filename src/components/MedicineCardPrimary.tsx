@@ -7,14 +7,14 @@ import { SvgFromUri } from "react-native-svg";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 
-interface PlantCardPrimaryProps extends RectButtonProps {
+interface MedicineCardPrimaryProps extends RectButtonProps {
   data: {
     name: string;
     photo: string;
   };
 }
 
-export function PlantCardPrimary({ data, ...rest }: PlantCardPrimaryProps) {
+export function MedicineCardPrimary({ data, ...rest }: MedicineCardPrimaryProps) {
   return (
     <RectButton style={styles.container} {...rest}>
       <SvgFromUri uri={data.photo} width={70} height={70} />

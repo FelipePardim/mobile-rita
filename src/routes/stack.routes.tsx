@@ -19,7 +19,7 @@ const stackRoutes = createStackNavigator();
 const AppRoutes: React.FC = () => {
     const [userHelp, setUserHelp] = useState(false);
 
-    AsyncStorage.getItem("@plantmanager:help").then((help) => {
+    AsyncStorage.getItem("@rita:help").then((help) => {
         setUserHelp(Boolean(help));
     });
 

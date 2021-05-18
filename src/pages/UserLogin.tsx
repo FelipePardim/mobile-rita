@@ -58,7 +58,7 @@ export function UserLogin() {
   }
 
   async function handleUsername(name: string) {
-    await AsyncStorage.setItem("@plantmanager:userName", name);
+    await AsyncStorage.setItem("@rita:userName", name);
   }
 
   async function handleLoginFirebase() {
@@ -104,9 +104,9 @@ export function UserLogin() {
     }
 
     try {
-      await AsyncStorage.setItem("@plantmanager:user", email);
+      await AsyncStorage.setItem("@rita:user", email);
       changeEmail(email);
-      await AsyncStorage.setItem("@plantmanager:help", "true");
+      await AsyncStorage.setItem("@rita:help", "true");
       handleLoginFirebase();
     } catch (error) {
       return Alert.alert("Não foi possível logar com essa conta. 😥");

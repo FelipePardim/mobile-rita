@@ -77,9 +77,9 @@ export function UserPassword() {
         }
 
         try {
-            await AsyncStorage.setItem("@plantmanager:user", password);
+            await AsyncStorage.setItem("@rita:user", password);
             changePassword(password);
-            await AsyncStorage.setItem("@plantmanager:help", "true");
+            await AsyncStorage.setItem("@rita:help", "true");
 
             navigation.navigate("UserIdentification", {
                 email: email,
