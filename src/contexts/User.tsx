@@ -10,15 +10,21 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 interface UserState {
   image: string;
   name: string;
+  email: string;
+  password: string;
 }
 
 interface UserContextData {
   user: {
     image: string;
     name: string;
+    email: string;
+    password: string;
   };
   changeImage: (image: string) => void;
   changeName: (name: string) => void;
+  changeEmail: (email: string) => void;
+  changePassword: (password: string) => void;
 }
 
 const UserContext = createContext<UserContextData>({} as UserContextData);
@@ -37,6 +43,20 @@ const UserProvider: React.FC = ({ children }) => {
     setUser({
       ...user,
       name,
+    } as UserState);
+  }, []);
+
+  const changeEmail = useCallback((email: string) => {
+    setUser({
+      ...user,
+      email,
+    } as UserState);
+  }, []);
+
+  const changePassword = useCallback((password: string) => {
+    setUser({
+      ...user,
+      password,
     } as UserState);
   }, []);
 
@@ -73,7 +93,7 @@ const UserProvider: React.FC = ({ children }) => {
   }, [user.image]);
 
   return (
-    <UserContext.Provider value={{ user, changeImage, changeName }}>
+    <UserContext.Provider value={{ user, changeImage, changeName, changeEmail, changePassword }}>
       {children}
     </UserContext.Provider>
   );

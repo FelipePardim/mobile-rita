@@ -7,8 +7,9 @@ import colors from "../styles/colors";
 import { Welcome } from "../pages/Welcome";
 import { UserIdentification } from "../pages/UserIdentification";
 import { Confirmation } from "../pages/Confirmation";
-
 import { PlantSave } from "../pages/PlantSave";
+import {  UserEmail } from "../pages/Signup/UserEmail";
+import {  UserPassword } from "../pages/Signup/UserPassword";
 
 import AuthRoutes from "./tab.routes";
 
@@ -40,7 +41,10 @@ const AppRoutes: React.FC = () => {
       {!userHelp && (
         <stackRoutes.Screen name="Confirmation" component={Confirmation} />
       )}
+      <stackRoutes.Screen name="UserEmail" component={UserEmail} />
+      <stackRoutes.Screen name="UserPassword" component={UserPassword} />
 
+      
       <stackRoutes.Screen name="PlantSelect" component={AuthRoutes} />
       <stackRoutes.Screen name="PlantSave" component={PlantSave} />
       <stackRoutes.Screen name="MyPlants" component={AuthRoutes} />
