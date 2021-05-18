@@ -104,7 +104,7 @@ export function MyMedicines() {
       </View>
 
       <View style={styles.plants}>
-        <Text style={styles.plantsTitle}>Próximas Regadas</Text>
+        <Text style={styles.plantsTitle}>Próximas Medicações:</Text>
 
         <FlatList
           data={myPlants}
