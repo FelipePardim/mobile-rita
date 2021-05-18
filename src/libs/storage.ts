@@ -45,8 +45,8 @@ export async function savePlant(plant: PlantProps): Promise<void> {
 
     const notificationId = await Notification.scheduleNotificationAsync({
       content: {
-        title: "Heeey, 🌱",
-        body: `Está na hora de cuidar da sua ${plant.name}`,
+        title: "Olá, 💊",
+        body: `Está na hora de cuidar da sua saúde. Medicação:${plant.name}`,
         sound: true,
         priority: Notification.AndroidNotificationPriority.HIGH,
         data: {
