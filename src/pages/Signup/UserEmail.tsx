@@ -89,6 +89,7 @@ export function UserEmail() {
                 onFocus={handleInputFocus}
                 onChangeText={handleInputChange}
                 value={email}
+                keyboardType={'email-address'}
               />
               <View style={styles.footer}>
                 <Button title="Confirmar" onPress={handleSubmit} />
