@@ -69,7 +69,7 @@ export function MyMedicines() {
 
       if (!plantsStorage[0]) {
         setMyPlants([]);
-        setNextWaterd(`Você ainda não tem plantas. 😥`);
+        setNextWaterd(`Você ainda não tem medicações. 😥`);
         setLoading(false);
         return;
       }
