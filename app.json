@@ -6,7 +6,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "description": "🌱 App para lembrar sempre de regar suas plantas 🌱",
+    "description": "💊 App para lembrar de suas medicações",
     "githubUrl": "https://github.com/Daniel-Vinicius/PlantManager",
     "splash": {
       "image": "./assets/splashRita.png"

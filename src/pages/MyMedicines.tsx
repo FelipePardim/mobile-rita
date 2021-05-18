@@ -50,7 +50,7 @@ export function MyMedicines() {
             }
 
             if (myPlants[0].id === plant.id && !myPlants[1]) {
-              setNextWaterd(`Você ainda não tem plantas. 😥`);
+              setNextWaterd(`Você ainda não tem medicações. 😥`);
               setMyPlants([]);
               return;
             }
