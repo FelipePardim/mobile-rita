@@ -9,7 +9,7 @@ import { pt } from "date-fns/locale";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 
-import waterDropImg from "../assets/waterdrop.png";
+import { MaterialIcons } from "@expo/vector-icons";
 
 import { Header } from "../components/Header";
 import { PlantCardSecundary } from "../components/PlantCardSecundary";
@@ -80,7 +80,7 @@ export function MyPlants() {
         { locale: pt }
       );
 
-      setNextWaterd(`Regue sua ${plantsStorage[0].name} daqui a ${nextTime}`);
+      setNextWaterd(`Tome a medicação ${plantsStorage[0].name} daqui a ${nextTime}`);
 
       setMyPlants(plantsStorage);
       setLoading(false);
@@ -95,10 +95,10 @@ export function MyPlants() {
 
   return (
     <View style={styles.container}>
-      <Header title="Minhas" subtitle="Plantinhas" />
+      <Header title="Minhas" subtitle="Medicações" />
 
       <View style={styles.spotlight}>
-        <Image style={styles.spotlightImage} source={waterDropImg} />
+        <MaterialIcons name="medical-services" size={60} color={colors.blue} />
 
         <Text style={styles.spotlightText}>{nextWaterd}</Text>
       </View>

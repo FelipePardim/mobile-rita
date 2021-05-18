@@ -24,9 +24,8 @@ import { loadPlants, PlantProps, savePlant } from "../libs/storage";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 
-import waterDropImg from "../assets/waterdrop.png";
-
 import { Button } from "../components/Button";
+import { MaterialIcons } from "@expo/vector-icons";
 
 interface ParamsPagePlantSave {
   plant: PlantProps;
@@ -98,7 +97,7 @@ export function PlantSave() {
 
         <View style={styles.controller}>
           <View style={styles.tipContainer}>
-            <Image source={waterDropImg} style={styles.tipImage} />
+          <MaterialIcons name="medical-services" size={60} color={colors.blue} />
             <Text style={styles.tipText}>{plant.water_tips}</Text>
           </View>
 

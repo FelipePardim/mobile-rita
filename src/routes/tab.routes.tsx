@@ -27,7 +27,7 @@ const AuthRoutes: React.FC = () => (
     }}
   >
     <AppTab.Screen
-      name="Nova Planta"
+      name="Nova Medicação"
       component={PlantSelect}
       options={{
         tabBarIcon: ({ size, color }) => (
@@ -37,7 +37,7 @@ const AuthRoutes: React.FC = () => (
     />
 
     <AppTab.Screen
-      name="Minhas Plantinhas"
+      name="Minhas Medicações"
       component={MyPlants}
       options={{
         tabBarIcon: ({ size, color }) => (

@@ -1,7 +1,11 @@
 export default {
-  green: '#32B768',
-  green_dark: '#2B7A4B',
-  green_light: '#DAF2E4',
+  // green: '#32B768',
+  // green_dark: '#2B7A4B',
+  // green_light: '#DAF2E4',
+
+  green: '#2F80ED',
+  green_dark: '#2F80ED',
+  green_light: '#EBF6FF',
 
   heading: '#52665A',
   body_dark: '#738078',

@@ -118,8 +118,8 @@ export function PlantSelect() {
       <View style={styles.header}>
         <Header />
 
-        <Text style={styles.title}>Em qual ambiente</Text>
-        <Text style={styles.subtitle}>você quer colocar sua planta?</Text>
+        <Text style={styles.title}>Qual medicação você</Text>
+        <Text style={styles.subtitle}>você deseja cadastrar?</Text>
       </View>
 
       <View>
