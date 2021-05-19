@@ -53,7 +53,7 @@ export function MedicineSelect() {
 
     async function fetchMedicines() {
         const { data } = await api.get<MedicineProps[]>(
-            `medicines?_sort=name&_order=asc&_page=${page}&_limit=8`
+            `plants?_sort=name&_order=asc&_page=${page}&_limit=8`
         );
 
         if (!data) {
