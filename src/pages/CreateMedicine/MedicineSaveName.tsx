@@ -72,6 +72,7 @@ export function MedicineSaveName() {
     }
     try {
       await saveMedicine({
+        // HARD CODED ID
         id: '5',
         name: medicineName,
         dosage: dosage,
