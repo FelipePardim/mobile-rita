@@ -58,23 +58,40 @@ export function UserLogin() {
     setPassword(value);
   }
 
-  async function handleCredential(user: string, token: string) {
-    await AsyncStorage.setItem("@rita:user", user);
+  async function handleCredential(userId: string, name: string, token: string) {
+    await AsyncStorage.setItem("@rita:userId", userId);
+    await AsyncStorage.setItem("@rita:user", name);
     await AsyncStorage.setItem("@rita:jwt", token);
   }
 
   async function handleLogin() {
-    api
+    await api
       .post("/auth", {
         email,
         password,
       })
       .then((response) => {
         console.log(response.data.user);
-        handleCredential(response.data.user.name, response.data.token);
+        console.log(response.status);
+        console.log(response.data.user.id);
+        handleCredential(
+          response.data.user.id,
+          response.data.user.name, 
+          response.data.token,
+        );
+
+        navigation.navigate("Confirmation", {
+          title: "Prontinho",
+          subtitle:
+            "Agora vamos começar a cuidar dos seus medicamentos.",
+          buttonTitle: "Começar",
+          icon: "smile",
+          nextScreen: "MedicineMenu",
+        });
       })
       .catch((response) => {
         alert(response.message);
+        navigation.navigate("Welcome")
       });
   }
 
@@ -94,14 +111,6 @@ export function UserLogin() {
     try {
       changeEmail(email);
       await handleLogin();
-      navigation.navigate("Confirmation", {
-        title: "Prontinho",
-        subtitle:
-          "Agora vamos começar a cuidar dos seus medicamentos.",
-        buttonTitle: "Começar",
-        icon: "smile",
-        nextScreen: "MedicineMenu",
-      });
     } catch (error) {
       return Alert.alert("Não foi possível logar com essa conta. 😥");
     }

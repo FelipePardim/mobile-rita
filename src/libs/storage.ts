@@ -1,9 +1,10 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Notification from "expo-notifications";
 import { format } from "date-fns";
+import api from "../services/api";
 
 export interface MedicineProps {
-  id: string;
+  userId: string;
   name: string;
   dosage: string;
   laboratory?: string;
@@ -63,7 +64,7 @@ export async function saveMedicine(medicine: MedicineProps): Promise<void> {
     const oldMedicines = data ? (JSON.parse(data) as StorageMedicineProps) : {};
 
     const newMedicine = {
-      [medicine.id]: {
+      [medicine.userId]: {
         data: medicine,
         notificationId,
       },
@@ -73,6 +74,22 @@ export async function saveMedicine(medicine: MedicineProps): Promise<void> {
       "@rita:medicines",
       JSON.stringify({ ...newMedicine, ...oldMedicines })
     );
+
+    api .post("/medicine", {
+      userId: medicine.userId,
+      name: medicine.name,
+      dosage: medicine.dosage,
+      laboratory: medicine.laboratory,
+      staterdhour: medicine.startedhour,
+      intakeinterval: medicine.startedhour
+    })
+    .then((response) => {
+      console.log(response.data);
+      console.log(response.status);
+    })
+    .catch((response) => {
+      alert(response.message);
+    });
   } catch (error) {
     throw new Error(error);
   }

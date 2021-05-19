@@ -20,6 +20,7 @@ import { getBottomSpace } from "react-native-iphone-x-helper";
 import { SvgFromUri } from "react-native-svg";
 
 import { loadMedicines, MedicineProps, saveMedicine } from "../../libs/storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import colors from "../../styles/colors";
 import fonts from "../../styles/fonts";
@@ -71,9 +72,9 @@ export function MedicineSaveName() {
       return Alert.alert("Escolha uma hora no futuro! ⏰");
     }
     try {
+      const userId = await AsyncStorage.getItem("@rita:userId");
       await saveMedicine({
-        // HARD CODED ID
-        id: '5',
+        userId: userId || '',
         name: medicineName,
         dosage: dosage,
         dateTimeNotification: selectedDateTime,
