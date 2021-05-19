@@ -61,7 +61,7 @@ export function UserIdentification() {
       .post("/users", {
         email,
         password,
-        type: 1,
+        type: 0, // Usuário
         name,
       })
       .then((response) => {
