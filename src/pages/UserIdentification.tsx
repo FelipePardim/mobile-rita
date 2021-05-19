@@ -93,7 +93,7 @@ export function UserIdentification() {
           "Agora vamos começar a cuidar dos seus medicamentos",
         buttonTitle: "Começar",
         icon: "smile",
-        nextScreen: "MedicineSelect",
+        nextScreen: "MedicineMenu",
       });
     } catch (error) {
       return Alert.alert("Não foi possível salvar o seu nome. 😥");

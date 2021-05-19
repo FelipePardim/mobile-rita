@@ -78,7 +78,7 @@ export function UserLogin() {
                 "Agora vamos começar a cuidar dos seus medicamentos.",
               buttonTitle: "Começar",
               icon: "smile",
-              nextScreen: "MedicineSelect",
+              nextScreen: "MedicineMenu",
             });
           });
 
@@ -107,7 +107,7 @@ export function UserLogin() {
       await AsyncStorage.setItem("@rita:user", email);
       changeEmail(email);
       await AsyncStorage.setItem("@rita:help", "true");
-      handleLoginFirebase();
+      // handleLoginFirebase();
     } catch (error) {
       return Alert.alert("Não foi possível logar com essa conta. 😥");
     }

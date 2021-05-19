@@ -5,11 +5,11 @@ import { format } from "date-fns";
 export interface MedicineProps {
   id: string;
   name: string;
-  about: string;
-  water_tips: string;
-  photo: string;
-  environments: string[];
-  hour: string;
+  dosage: string;
+  laboratory?: string;
+  intakeinterval?: string;
+  startedhour?: string;
+  photo?: string;
   frequency: {
     times: number;
     repeat_every: string;

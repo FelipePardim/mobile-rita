@@ -7,7 +7,8 @@ import colors from "../styles/colors";
 import { Welcome } from "../pages/Welcome";
 import { UserIdentification } from "../pages/UserIdentification";
 import { Confirmation } from "../pages/Confirmation";
-import { MedicineSave } from "../pages/MedicineSave";
+import { MedicineSaveName } from "../pages/CreateMedicine/MedicineSaveName";
+import { MedicineSaveDosage } from "../pages/CreateMedicine/MedicineSaveDosage";
 import { UserEmail } from "../pages/Signup/UserEmail";
 import { UserPassword } from "../pages/Signup/UserPassword";
 import { UserLogin } from "../pages/UserLogin";
@@ -66,8 +67,9 @@ const AppRoutes: React.FC = () => {
 
             <stackRoutes.Screen name="UserLogin" component={UserLogin} />
             
-            <stackRoutes.Screen name="MedicineSelect" component={AuthRoutes} />
-            <stackRoutes.Screen name="MedicineSave" component={MedicineSave} />
+            <stackRoutes.Screen name="MedicineMenu" component={AuthRoutes} />
+            <stackRoutes.Screen name="MedicineSaveName" component={MedicineSaveName} />
+            <stackRoutes.Screen name="MedicineSaveDosage" component={MedicineSaveDosage} />
             <stackRoutes.Screen name="MyMedicines" component={AuthRoutes} />
         </stackRoutes.Navigator>
     );

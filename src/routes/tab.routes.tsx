@@ -6,7 +6,7 @@ import colors from "../styles/colors";
 
 import { MaterialIcons } from "@expo/vector-icons";
 
-import { MedicineSelect } from "../pages/MedicineSelect";
+import { MedicineMenu } from "../pages/MedicineMenu";
 import { MyMedicines } from "../pages/MyMedicines";
 
 const AppTab = createBottomTabNavigator();
@@ -28,7 +28,7 @@ const AuthRoutes: React.FC = () => (
   >
     <AppTab.Screen
       name="Nova Medicação"
-      component={MedicineSelect}
+      component={MedicineMenu}
       options={{
         tabBarIcon: ({ size, color }) => (
           <MaterialIcons name="add-circle-outline" size={size} color={color} />
