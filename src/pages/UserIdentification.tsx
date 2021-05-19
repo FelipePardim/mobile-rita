@@ -85,7 +85,7 @@ export function UserIdentification() {
 
       console.log(`Email: ${email}\nPassword: ${password}\nName: ${name}`);
 
-      handleFirebaseRegister();
+      // handleFirebaseRegister();
 
       navigation.navigate("Confirmation", {
         title: "Prontinho",
