@@ -24,6 +24,7 @@ import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 import { useRoute } from "@react-navigation/native";
 import firebase from "./../services/firebaseConfig";
+import api from "./../services/api";
 
 interface userData {
   email: string;
@@ -55,21 +56,19 @@ export function UserIdentification() {
     setName(value);
   }
 
-  async function handleFirebaseRegister() {
-    await firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then((value) => {
-        firebase
-          .database()
-          .ref("usuarios")
-          .child(value.user?.uid || "")
-          .set({ name: name });
-        return;
+  async function handleRegister() {
+    api
+      .post("/users", {
+        email,
+        password,
+        type: 1,
+        name,
       })
-      .catch(() => {
-        alert("Ocoreu algo inesperado, tente novamente mais tarde!");
-        return;
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((response) => {
+        alert(response.message);
       });
   }
 
@@ -79,21 +78,18 @@ export function UserIdentification() {
     }
 
     try {
-      await AsyncStorage.setItem("@rita:user", name);
       changeName(name);
-      await AsyncStorage.setItem("@rita:help", "true");
 
       console.log(`Email: ${email}\nPassword: ${password}\nName: ${name}`);
 
-      // handleFirebaseRegister();
+      await handleRegister();
 
       navigation.navigate("Confirmation", {
         title: "Prontinho",
-        subtitle:
-          "Agora vamos começar a cuidar dos seus medicamentos",
+        subtitle: "Agora vamos começar a cuidar dos seus medicamentos",
         buttonTitle: "Começar",
         icon: "smile",
-        nextScreen: "MedicineMenu",
+        nextScreen: "UserLogin",
       });
     } catch (error) {
       return Alert.alert("Não foi possível salvar o seu nome. 😥");

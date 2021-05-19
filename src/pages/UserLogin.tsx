@@ -27,6 +27,7 @@ import rita from "../assets/RitaImg.png";
 
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
+import api from "./../services/api";
 
 export function UserLogin() {
   const { changeEmail, changePassword } = useUser();
@@ -57,36 +58,23 @@ export function UserLogin() {
     setPassword(value);
   }
 
-  async function handleUsername(name: string) {
-    await AsyncStorage.setItem("@rita:userName", name);
+  async function handleCredential(user: string, token: string) {
+    await AsyncStorage.setItem("@rita:user", user);
+    await AsyncStorage.setItem("@rita:jwt", token);
   }
 
-  async function handleLoginFirebase() {
-    await firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then((value) => {
-        firebase
-          .database()
-          .ref("usuarios")
-          .child(value.user?.uid || "")
-          .once("value", (snapshot) => {
-            handleUsername(snapshot.val().name);
-            navigation.navigate("Confirmation", {
-              title: "Prontinho",
-              subtitle:
-                "Agora vamos começar a cuidar dos seus medicamentos.",
-              buttonTitle: "Começar",
-              icon: "smile",
-              nextScreen: "MedicineMenu",
-            });
-          });
-
-        return;
+  async function handleLogin() {
+    api
+      .post("/auth", {
+        email,
+        password,
       })
-      .catch(() => {
-        alert("Usuário ou senha incorreto!");
-        return;
+      .then((response) => {
+        console.log(response.data.user);
+        handleCredential(response.data.user.name, response.data.token);
+      })
+      .catch((response) => {
+        alert(response.message);
       });
   }
 
@@ -104,10 +92,16 @@ export function UserLogin() {
     }
 
     try {
-      await AsyncStorage.setItem("@rita:user", email);
       changeEmail(email);
-      await AsyncStorage.setItem("@rita:help", "true");
-      // handleLoginFirebase();
+      await handleLogin();
+      navigation.navigate("Confirmation", {
+        title: "Prontinho",
+        subtitle:
+          "Agora vamos começar a cuidar dos seus medicamentos.",
+        buttonTitle: "Começar",
+        icon: "smile",
+        nextScreen: "MedicineMenu",
+      });
     } catch (error) {
       return Alert.alert("Não foi possível logar com essa conta. 😥");
     }
