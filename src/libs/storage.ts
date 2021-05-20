@@ -32,13 +32,13 @@ export async function saveMedicine(medicine: MedicineProps): Promise<void> {
 
     const { times, repeat_every } = medicine.frequency;
 
-    if (repeat_every === "week") {
-      const interval = Math.trunc(7 / times);
-      nextTime.setDate(now.getDate() + interval);
-    } else {
-      // nextTime.setDate(nextTime.getDate() + 1);
-      nextTime.setDate(nextTime.getDate());
-    }
+    // if (repeat_every === "week") {
+    //   const interval = Math.trunc(7 / times);
+    //   nextTime.setDate(now.getDate() + interval);
+    // } else {
+    //   // nextTime.setDate(nextTime.getDate() + 1);
+    //   nextTime.setDate(nextTime.getDate());
+    // }
 
     const seconds = Math.abs(
       Math.ceil((now.getTime() - nextTime.getTime()) / 1000)
@@ -55,12 +55,13 @@ export async function saveMedicine(medicine: MedicineProps): Promise<void> {
         },
       },
       trigger: {
-        seconds: seconds < 60 ? 60 : seconds,
+        seconds: seconds,
         repeats: true,
       },
     });
 
     const data = await AsyncStorage.getItem("@rita:medicines");
+    const token = await AsyncStorage.getItem("@rita:jwt");
     const oldMedicines = data ? (JSON.parse(data) as StorageMedicineProps) : {};
 
     const newMedicine = {
@@ -75,21 +76,25 @@ export async function saveMedicine(medicine: MedicineProps): Promise<void> {
       JSON.stringify({ ...newMedicine, ...oldMedicines })
     );
 
-    api .post("/medicine", {
-      userId: medicine.userId,
-      name: medicine.name,
-      dosage: medicine.dosage,
-      laboratory: medicine.laboratory,
-      staterdhour: medicine.startedhour,
-      intakeinterval: medicine.startedhour
-    })
-    .then((response) => {
-      console.log(response.data);
-      console.log(response.status);
-    })
-    .catch((response) => {
-      alert(response.message);
-    });
+    //Broken medicine POST 
+    // await api .post("/medicine", {
+    //   userId: medicine.userId,
+    //   name: medicine.name,
+    //   dosage: medicine.dosage,
+    //   laboratory: medicine.laboratory,
+    //   staterdhour: medicine.startedhour,
+    //   intakeinterval: medicine.startedhour,
+    //   headers: {
+    //     headers: { Authorization: `Bearer ${token}` }
+    //   }
+    // })
+    // .then((response) => {
+    //   console.log(response.data);
+    //   console.log(response.status);
+    // })
+    // .catch((response) => {
+    //   alert(response.message);
+    // });
   } catch (error) {
     throw new Error(error);
   }
